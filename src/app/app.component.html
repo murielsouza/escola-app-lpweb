@@ -1,22 +1,24 @@
 <!-- Template HTML-->
-<div class="h1">
+<div class="h1" class="container">
   <h1>Disciplinas</h1> <hr>
     <td><button (click)="selecionar(true)" class="btn">Novo</button> </td>
-  <table>
+  <table class="table table-hover table-bordered">
     <thead class="line1">
       <th>Código</th>
       <th>Nome</th>
-      <th>Ações</th>
+      <th width="200">Ações</th>
     </thead>
     <tbody>
       <tr *ngFor = "let disciplina of disciplinas">
         <td id="detail">{{disciplina.codigo}}</td>
         <td (click)="detalhes(disciplina)"> {{disciplina.nome}}</td>
-          <button (click)="excluir(disciplina)" class="btnExcluir">
+          <button (click)="excluir(disciplina)"  class="btn btn-sm btn-danger">
+            <i class="fa fa-trash"></i>
             Excluir
           </button>
-          <button (click)="editar(disciplina)" (click)="selecionar(true)" class="btnAlterar">
-            Editar
+          <button (click)="editar(disciplina)" (click)="selecionar(true)" class="btn btn-sm btn-primary">
+              <i class="fa fa-pencil-square"></i>
+              Editar
           </button>
       </tr>
     </tbody>
@@ -33,26 +35,27 @@
   </li>
 </ul>
 
-<h1>Manuntenção</h1> <hr> <!-- Formulário para edição/adição de novas disciplinas -->
+<h1>Cadastrar</h1> <hr> <!-- Formulário para edição/adição de novas disciplinas -->
 
   <form *ngIf="selecionado == true" #cadastro="ngForm" (submit)="salvar()">
     <div>
       <label for="codigo">Código</label><br>
-      <input type="number" id="codigo" name="codigo" [(ngModel)]="codigo" required>
+      <input type="number" id="codigo" name="codigo" [(ngModel)]="codigo" required class="form-control">
     </div>
     <div>
       <label for="nome">Nome</label><br>
-      <input type="text" id="nome" name="nome" [(ngModel)]="nome" required>
+      <input type="text" id="nome" name="nome" [(ngModel)]="nome" required class="form-control">
     </div>
     <div>
       <label for="descricao">Descrição</label><br>
       <textarea id="descricao" name="descricao" [(ngModel)]="descricao"
-        cols="70" rows="5">
+        cols="70" rows="5" class="form-control">
       </textarea>
     </div>
     <button type="submit" class="btn btn-primary" [disabled]="!cadastro.valid">
-      Salvar
+        <i class="fa fa-save"></i>
+        Salvar
     </button>
-    <button type="reset" (click)="cancelar()">Cancelar</button>
+    <button type="reset" (click)="cancelar()" class="btn btn-secondary">Cancelar</button>
   </form>
 </div>
