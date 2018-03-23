@@ -30,6 +30,10 @@
     <p *ngIf="marcado == disciplina">
       <strong>Código:</strong> {{disciplina.codigo}}<br>
       <strong>Disciplina:</strong> {{disciplina.nome}}<br>
+        <strong>Data:</strong> {{disciplina.data}}<br>
+        <strong>Situação(ativo ou desativado):</strong> {{disciplina.ativo}}<br>
+        <strong>Tipo:</strong> {{disciplina.tipo}}<br>
+        <strong>Periodo</strong> {{disciplina.periodo}}<br>
       <strong>Descrição:</strong> {{disciplina.descricao}}<br>
     </p>
   </li>
@@ -46,6 +50,32 @@
       <label for="nome">Nome</label><br>
       <input type="text" id="nome" name="nome" [(ngModel)]="nome" required class="form-control">
     </div>
+      <div>
+          <label for="data">Nome</label><br>
+          <input type="date" id="data" name="data" [(ngModel)]="data" required class="form-control">
+      </div>
+      <div>
+          <label for="ativo">Ativo</label><br>
+          <input type="checkbox" id="ativo" name="ativo" value=true checked="checked" [(ngModel)]="ativo" required class="form-control">
+      </div>
+      <div>
+          <label for="tipo">Tipo</label><br>
+          <input type="radio"  id="tipo" name="tipo" value="Primário" checked [(ngModel)]="tipo" required class="form-control">Primário
+          <input type="radio"  id="tipo1" name="tipo" value="Secundário" checked [(ngModel)]="tipo" required class="form-control">Secundário
+      </div>
+      <div>
+        <label for="periodo"></label><br>
+         <select id="periodo" [(ngModel)]="periodo" required class="form-control">
+            <option value="1º">1º Periodo</option>
+             <option value="2º">2º Periodo</option>
+             <option value="3º">3º Periodo</option>
+             <option value="4º">4º Periodo</option>
+             <option value="5º">5º Periodo</option>
+             <option value="6º">6º Periodo</option>
+             <option value="7º">7º Periodo</option>
+             <option value="8º">8º Periodo</option>
+         </select>
+     </div>
     <div>
       <label for="descricao">Descrição</label><br>
       <textarea id="descricao" name="descricao" [(ngModel)]="descricao"
