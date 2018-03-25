@@ -17,8 +17,10 @@ export class AppComponent {
     ativo = false;
     tipo = null;
     periodo = null;
-    labelAtivo = "Desativado";
 
+    constructor(){
+        this.obter_localStorage();
+    }
     disciplinas = [
         new Disciplina(1001, 'Língua Portuguesa','O objetivo norteador da BNCC de Língua Portuguesa ' +
             'é garantir a todos os alunos o acesso aos saberes linguísticos necessários para a ' +
@@ -74,6 +76,7 @@ export class AppComponent {
         } else {
             const d = new Disciplina(this.codigo, this.nome, this.descricao, this.data, this.ativo, this.tipo, this.periodo);
             this.disciplinas.push(d);
+            this.gravar_localStorage(d);
         }
         this.codigo = null;
         this.nome = null;
@@ -125,5 +128,14 @@ export class AppComponent {
 
     detalhes(disciplina) {
         this.marcado = disciplina;
+    }
+
+    gravar_localStorage(disciplina){
+        localStorage.setItem("Disciplina", JSON.stringify(disciplina));
+    }
+    obter_localStorage(){
+        const d = JSON.parse(localStorage.getItem("Disciplina"));
+        this.disciplinas.push(new Disciplina(d[0], d[1], d[2], d[3], d[4], d[5], d[6]));
+
     }
 }
