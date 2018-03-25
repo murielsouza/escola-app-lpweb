@@ -70,3 +70,7 @@ hr {
 li{
     list-style-type: none;
 }
+
+.alinhamento{
+    align-items: left;
+}

@@ -1,7 +1,10 @@
 <!-- Template HTML-->
 <div class="h1" class="container">
   <h1>Disciplinas</h1> <hr>
-    <td><button (click)="selecionar(true)" class="btn">Novo</button> </td>
+    <td><button (click)="selecionar(true)" class="btn btn-primary">
+        <i class="fa fa-plus-circle"></i>
+        Novo
+    </button> </td>
   <table class="table table-hover table-bordered">
     <thead class="line1">
       <th>Código</th>
@@ -54,18 +57,29 @@
           <label for="data">Data</label><br>
           <input type="date" id="data" name="data" [(ngModel)]="data" required class="form-control">
       </div>
-      <div>
-          <label for="ativo">Situação: </label><br>
-          <input type="checkbox" id="ativo" name="ativo" value=true checked="checked" [(ngModel)]="ativo">{{ativo}}
+      <br>
+      Situação:
+      <div class="btn-group btn-group-toggle">
+          <label class="btn btn-light" ngbButtonLabel>
+            <input type="checkbox" name="ativo" ngbButton [(ngModel)]="ativo">{{ativo}} <br>
+          </label>
       </div>
-      <div>
-          <label for="tipo">Tipo</label><br>
-          <input type="radio"  id="tipo" name="tipo" value="Primário" checked [(ngModel)]="tipo" required class="form-control">Primário
-          <input type="radio"  id="tipo1" name="tipo" value="Secundário" checked [(ngModel)]="tipo" required class="form-control">Secundário
+      <br>
+      <br>
+      Tipo:
+      <div class="btn-group btn-group-toggle" ngbRadioGroup name="tipo" [(ngModel)]="tipo">
+          <label ngbButtonLabel class="btn-primary">
+              <input ngbButton type="radio" value="Primário"> Primário
+          </label>
+          <label ngbButtonLabel class="btn-secondary">
+              <input ngbButton type="radio" value="Secundário"> Secundário
+          </label>
       </div>
+      <br><br>
       <div>
         <label for="periodo">Período</label><br>
           <select id="periodo" name="periodo" required class="form-control" [(ngModel)]="periodo">
+              <option value=null>Selecionar...</option>
              <option value="1º">1º Periodo</option>
              <option value="2º">2º Periodo</option>
              <option value="3º">3º Periodo</option>
@@ -82,7 +96,7 @@
         cols="70" rows="5" class="form-control">
       </textarea>
     </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!cadastro.valid">
+    <button type="submit" class="btn btn-success" [disabled]="!cadastro.valid">
         <i class="fa fa-save"></i>
         Salvar
     </button>

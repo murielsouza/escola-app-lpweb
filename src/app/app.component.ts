@@ -17,20 +17,21 @@ export class AppComponent {
     ativo = false;
     tipo = null;
     periodo = null;
+    labelAtivo = "Desativado";
 
     disciplinas = [
         new Disciplina(1001, 'Língua Portuguesa','O objetivo norteador da BNCC de Língua Portuguesa ' +
             'é garantir a todos os alunos o acesso aos saberes linguísticos necessários para a ' +
             'participação social e o exercício da cidadania, pois é por meio da língua que o ser ' +
             'humano pensa, comunica-se, tem acesso à informação, expressa e defende pontos de ' +
-            'vista, partilha ou constrói visões de mundo e produz conhecimento.','19 de março de 2018', true, 'Primário', '3º'),
+            'vista, partilha ou constrói visões de mundo e produz conhecimento.','2018-03-25', true, 'Primário', '3º'),
         new Disciplina(1002, 'Educação Física', 'A Educação Física é o componente curricular ' +
             'que tematiza as práticas corporais em suas diversas formas de codificação e ' +
             'significação social, entendidas como manifestações das possibilidades ' +
             'expressivas dos sujeitos e patrimônio cultural da humanidade. Nessa concepção, ' +
             'o movimento humano está sempre inserido no âmbito da cultura e não se limita a ' +
             'um deslocamento espaço-temporal de um segmento corporal ou de um corpo todo. ' +
-            'Logo, as práticas corporais são textos culturais passíveis de leitura e produção.','19 de março de 2018', false, 'Primário', '5º'),
+            'Logo, as práticas corporais são textos culturais passíveis de leitura e produção.','2018-03-25', false, 'Primário', '5º'),
         new Disciplina(1003, 'Inglês', 'Aprender a língua inglesa propicia a criação de novas ' +
             'formas de engajamento e participação dos alunos em um mundo social cada vez mais ' +
             'globalizado e plural, em que as fronteiras entre países e interesses pessoais, ' +
@@ -40,7 +41,7 @@ export class AppComponent {
             'nesse sentido, abre novos percursos de acesso, construção de conhecimentos e ' +
             'participação social. É esse caráter formativo que inscreve a aprendizagem de ' +
             'inglês em uma perspectiva de educação linguística, consciente e crítica, na ' +
-            'qual as dimensões pedagógicas e políticas são intrinsecamente ligadas.','19 de março de 2018', true, 'Primário', '5º'),
+            'qual as dimensões pedagógicas e políticas são intrinsecamente ligadas.','2018-03-25', true, 'Primário', '5º'),
         new Disciplina(1004, 'Matemática', 'No Ensino Fundamental, essa área, por meio da ' +
             'articulação de seus diversos campos – Aritmética, Álgebra, Geometria, ' +
             'Estatística e Probabilidade – precisa garantir que os alunos relacionem ' +
@@ -51,14 +52,14 @@ export class AppComponent {
             'resolver problemas, aplicando conceitos, procedimentos e resultados para ' +
             'obter soluções e interpretá-las segundo os contextos das situações. A dedução ' +
             'de algumas propriedades e a verificação de conjecturas, a partir de outras, ' +
-            'podem ser estimuladas, sobretudo ao final do Ensino Fundamental.','19 de março de 2018', true, 'Secundário', '6º'),
+            'podem ser estimuladas, sobretudo ao final do Ensino Fundamental.','2018-03-25', true, 'Secundário', '6º'),
         new Disciplina(1005, 'Ciências','Ao estudar Ciências, as pessoas aprendem a respeito ' +
             'de si mesmas, da diversidade e dos processos de evolução e manutenção da vida, ' +
             'do mundo material – com os seus recursos naturais, suas transformações e fontes ' +
             'de energia –, do nosso planeta no Sistema Solar e no Universo e da aplicação ' +
             'dos conhecimentos científicos nas várias esferas da vida humana. ' +
             'Essas aprendizagens, entre outras, possibilitam que os alunos compreendam, ' +
-            'expliquem e intervenham no mundo em que vivem.','19 de março de 2018', false, 'Primário', '7º')
+            'expliquem e intervenham no mundo em que vivem.','2018-03-25', false, 'Primário', '7º')
     ];
 
     salvar() {
@@ -78,7 +79,7 @@ export class AppComponent {
         this.nome = null;
         this.descricao = null;
         this.data = null;
-        this.ativo = null;
+        this.ativo = false;
         this.tipo = null;
         this.periodo = null;
         this.editando = null;
