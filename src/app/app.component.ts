@@ -14,7 +14,7 @@ export class AppComponent {
     nome = null;
     descricao = null;
     data = null;
-    ativo = null;
+    ativo = false;
     tipo = null;
     periodo = null;
 

@@ -51,12 +51,12 @@
       <input type="text" id="nome" name="nome" [(ngModel)]="nome" required class="form-control">
     </div>
       <div>
-          <label for="data">Nome</label><br>
+          <label for="data">Data</label><br>
           <input type="date" id="data" name="data" [(ngModel)]="data" required class="form-control">
       </div>
       <div>
-          <label for="ativo">Ativo</label><br>
-          <input type="checkbox" id="ativo" name="ativo" value=true checked="checked" [(ngModel)]="ativo" required class="form-control">
+          <label for="ativo">Situação: </label><br>
+          <input type="checkbox" id="ativo" name="ativo" value=true checked="checked" [(ngModel)]="ativo">{{ativo}}
       </div>
       <div>
           <label for="tipo">Tipo</label><br>
@@ -64,9 +64,9 @@
           <input type="radio"  id="tipo1" name="tipo" value="Secundário" checked [(ngModel)]="tipo" required class="form-control">Secundário
       </div>
       <div>
-        <label for="periodo"></label><br>
-         <select id="periodo" [(ngModel)]="periodo" required class="form-control">
-            <option value="1º">1º Periodo</option>
+        <label for="periodo">Período</label><br>
+          <select id="periodo" name="periodo" required class="form-control" [(ngModel)]="periodo">
+             <option value="1º">1º Periodo</option>
              <option value="2º">2º Periodo</option>
              <option value="3º">3º Periodo</option>
              <option value="4º">4º Periodo</option>
