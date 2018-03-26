@@ -73,6 +73,7 @@ export class AppComponent {
             this.editando.ativo = this.ativo;
             this.editando.tipo = this.tipo;
             this.editando.periodo = this.periodo;
+            this.gravar_localStorage(this.editando);
         } else {
             const d = new Disciplina(this.codigo, this.nome, this.descricao, this.data, this.ativo, this.tipo, this.periodo);
             this.disciplinas.push(d);
@@ -95,6 +96,7 @@ export class AppComponent {
             if (confirm('Tem certeza que deseja excluir a disciplina "'
                     + disciplina.nome + '"?')) {
                 const i = this.disciplinas.indexOf(disciplina);
+                this.remover_localStorage(disciplina);
                 this.disciplinas.splice(i, 1);
             }
         }
@@ -131,11 +133,20 @@ export class AppComponent {
     }
 
     gravar_localStorage(disciplina){
-        localStorage.setItem("Disciplina", JSON.stringify(disciplina));
+        localStorage.setItem((disciplina.codigo).toString(), JSON.stringify(disciplina));
     }
-    obter_localStorage(){
-        const d = JSON.parse(localStorage.getItem("Disciplina"));
-        this.disciplinas.push(new Disciplina(d[0], d[1], d[2], d[3], d[4], d[5], d[6]));
 
+    obter_localStorage(){
+        for(const i in localStorage){
+            const d = JSON.parse(localStorage.getItem(i));
+            if(d != undefined){
+                this.disciplinas.push(d);
+            }
+
+        }
+    }
+
+    remover_localStorage(disciplina){
+        localStorage.removeItem((disciplina.codigo).toString());
     }
 }
